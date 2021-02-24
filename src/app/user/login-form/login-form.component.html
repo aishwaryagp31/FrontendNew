@@ -1,0 +1,35 @@
+
+<div class="container card">
+    <form novalidate #form="ngForm" (submit)="onSubmit(form)">
+        <input type="hidden" name="userId"
+        [value]="service.formData.userId" />
+        <div class="form-title">
+            <h2>Login</h2>
+        </div>
+        <div class="form-group">
+            <label>USERNAME</label>
+            <input class="form-control form-control-lg" placeholder="UserName"
+            name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName"
+            required [class.invalid]="userName.invalid && userName.touched">
+        </div>
+        <div class="form-group">
+            <label>PASSWORD</label>
+            <input type="password" class="form-control form-control-lg" placeholder="password"
+            name="password" #password="ngModel" [(ngModel)]="service.formData.password"
+            required maxlength="8" minlength="8" [class.invalid]="password.invalid && password.touched">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">LOGIN</button>
+        </div>
+    </form>
+    <div>
+        <!-- <button (click)="registerform()">Register</button> -->
+        <a routerLink="/app-register-form">Not a User?Register</a>
+    </div> 
+
+
+
+
+
+
+    
